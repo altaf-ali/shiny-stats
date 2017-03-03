@@ -1,0 +1,14 @@
+.sidebar-well {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.sidebar-well-center {
+  width: 50%;
+  margin: 0 auto;
+}
+
+#table-table {
+  white-space: nowrap;
+}
+

@@ -6,28 +6,33 @@
 #
 
 library(shiny)
+library(shinyBS)
 library(shinydashboard)
 
+library(ggplot2)
 library(ggvis)
+
 library(readr)
 library(dplyr)
+library(tidyr)
+
+library(RColorBrewer)
+
+rm(list = ls())
 
 source("dashboard.R")
 source("config.R")
 
-dashboard_sourceModules(App$modules)
+dashboard_sourceModules("modules")
 
 dashboard_header <- dashboardHeader(title = App$title)
 
 dashboard_sidebar <- dashboardSidebar(
-  sidebarMenu(
-    id = "sidebar_menu",
-    dashboard_menuItems(App$modules),
-    dashboard_menuItemsConditional(App$modules)
-  )
+  dashboard_sidebarMenu(App$modules)
 )
 
 dashboard_body <- dashboardBody(
+  dashboard_includeCSS("main.css"),
   dashboard_tabItems(App$modules)
 )
 
